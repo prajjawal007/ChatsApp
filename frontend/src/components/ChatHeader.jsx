@@ -23,7 +23,7 @@ const ChatHeader = () => {
             <p className="text-sm text-base-content/70">
               {onlineUsers.includes(selectedUser._id) ? "Online" : "Offline"}
             </p>
-          </div>
+          </div>  
         </div>
 
         {/* Close button */}

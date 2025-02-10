@@ -36,8 +36,8 @@ export const useAuthStore = create((set, get) => ({
       toast.success("Account created successfully");
 
       get().connectSocket();
-    } catch (error) {
-      toast.error(error.response.data.message);
+    } catch (error) { 
+      toast.error(error.response.data.message );
     } finally {
       set({ isSigningUp: false });
     }
@@ -63,7 +63,7 @@ export const useAuthStore = create((set, get) => ({
       await axiosInstance.post("/auth/logout");
       set({ authUser: null });
       toast.success("Logged Out successfully");
-      get.disconnectSocket();
+      get().disconnectSocket();
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -100,7 +100,9 @@ export const useAuthStore = create((set, get) => ({
       set({onlineUsers: userIds})
     })
   },
+
   disconnectSocket: () => {
     if (get().socket?.connected) get().socket.disconnect();
   },
+
 }));

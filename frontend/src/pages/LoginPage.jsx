@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(formData);
+    login(formData);  
   };
 
   return (
@@ -105,6 +105,11 @@ const LoginPage = () => {
               </Link>
             </p>
           </div>
+          <div className="text-center">
+            <Link to="/forgot-password" className="link link-primary">
+            Forgot Password!
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -114,6 +119,6 @@ const LoginPage = () => {
         subtitle={"Sign in to continue your conversations and catch up with your messages."}
       />
     </div>
-  );
+  ); 
 };
 export default LoginPage;

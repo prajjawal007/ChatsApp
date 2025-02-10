@@ -19,7 +19,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         default:"",
     },
-},{timestamps:true});
+    forgotPasswordOtp:{
+        type: Number,
+        default: null
+    },
+    forgotPasswordOtpExpiry:{
+        type: Date,
+        default: null
+    }
+},{timestamps:true}); //timestamps will give create_at & updated_at
 
 const User = mongoose.model("User",userSchema);
 export default User;
