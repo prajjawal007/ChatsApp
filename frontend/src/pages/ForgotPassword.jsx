@@ -5,7 +5,7 @@ import { axiosInstance } from "../lib/axios.js";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from 'lucide-react';
 import AuthImagePattern from '../components/AuthImagePattern.jsx';
 
-const baseURL = import.meta.env.MODE === "development" ? "http://localhost:5001/api" : "/";
+// const baseURL = import.meta.env.MODE === "development" ? "http://localhost:5001/api" : "/";
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -20,7 +20,7 @@ const ForgotPassword = () => {
         setIsLoading(true);
         e.preventDefault();
         try {
-            const response = await axiosInstance.post(`${baseURL}/auth/forgot-password`, { email });
+            const response = await axiosInstance.post(`/auth/forgot-password`, { email });
             if (response.data.success) {
                 toast.success(response.data.message);
                 setStep(2);
@@ -40,7 +40,7 @@ const ForgotPassword = () => {
         try {
             console.log("Sending OTP:", otp, "Email:", email); // Debugging line
             
-            const response = await axiosInstance.post(`${baseURL}/auth/verify-forgot-password-otp`, { 
+            const response = await axiosInstance.post(`/auth/verify-forgot-password-otp`, { 
                 email, 
                 otp: Number(otp)  // Ensure OTP is sent as a number
             });
@@ -65,7 +65,7 @@ const ForgotPassword = () => {
         setIsLoading(true);
         e.preventDefault();
         try {
-            const response = await axiosInstance.post(`${baseURL}/auth/reset-password`, {
+            const response = await axiosInstance.post(`/auth/reset-password`, {
                 email,
                 otp,
                 newPassword,
