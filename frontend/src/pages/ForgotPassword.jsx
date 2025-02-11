@@ -5,7 +5,7 @@ import { axiosInstance } from "../lib/axios.js";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from 'lucide-react';
 import AuthImagePattern from '../components/AuthImagePattern.jsx';
 
-const baseURL = import.meta.env.MODE === "development" ? "http://localhost:5001/api" : "/api";
+const baseURL = import.meta.env.MODE === "development" ? "http://localhost:5001/api" : "/";
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
